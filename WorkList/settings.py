@@ -134,6 +134,10 @@ REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework.authentication.TokenAuthentication',
     ),
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated', #必须有
+        #'rest_framework.permissions.IsAuthenticatedOrReadOnly',  # 必须有
+    ),
 }
 
 

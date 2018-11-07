@@ -10,7 +10,7 @@ class LevelAdmin(admin.ModelAdmin):
 class JobAdmin(admin.ModelAdmin):
     list_display = ['job_level', 'job_date', 'job_content', 'job_isover', 'job_comment']
     list_filter = ['job_level', 'job_date', 'job_content', 'job_isover']
-    search_fields = ['job_level', 'job_date', 'job_isover']
+    search_fields = ['job_level', 'job_date']
     list_per_page = 30
     actions = ['is_over', 'is_nover']
 

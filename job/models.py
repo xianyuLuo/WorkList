@@ -9,6 +9,10 @@ class level(models.Model):
     def __str__(self):
         return self.level_name
 
+    class Meta:
+        verbose_name = "等级"
+        verbose_name_plural = verbose_name
+
 class job(models.Model):
     job_level = models.ForeignKey(level, on_delete = models.CASCADE, verbose_name = 'Job等级', help_text = '事件等级')
     job_date = models.DateField(default = date.today(), verbose_name = '时间')
@@ -18,3 +22,7 @@ class job(models.Model):
 
     def __str__(self):
         return self.job_content
+
+    class Meta:
+        verbose_name = "任务"
+        verbose_name_plural = verbose_name

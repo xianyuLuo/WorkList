@@ -7,7 +7,7 @@ class LevelSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class JobSerializer(serializers.ModelSerializer):
-    job_level = serializers.CharField(source = 'job_level.level_name')
+    #job_level = serializers.CharField(source = 'job_level.level_name')
     class Meta:
         model = job
         fields = ('job_level', 'job_date', 'job_content', 'job_isover', 'job_comment')
