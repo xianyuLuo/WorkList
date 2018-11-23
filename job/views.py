@@ -1,6 +1,7 @@
 from job.serializers import LevelSerializer, JobSerializer
 from job.models import level, job
 from rest_framework import generics
+from rest_framework import authentication
 
 class LevelList(generics.ListAPIView):
     """
@@ -17,6 +18,7 @@ class LevelList(generics.ListAPIView):
     level名称，如“重要不紧急”
     ```
     """
+    authentication_classes = (authentication.TokenAuthentication, authentication.SessionAuthentication)
     queryset = level.objects.all()
     serializer_class = LevelSerializer
 
@@ -84,6 +86,7 @@ class JobList(generics.ListCreateAPIView):
     job备注
     ```
     """
+    authentication_classes = (authentication.TokenAuthentication, authentication.SessionAuthentication)
     queryset = job.objects.all()
     serializer_class = JobSerializer
 
