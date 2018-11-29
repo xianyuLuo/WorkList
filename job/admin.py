@@ -1,5 +1,9 @@
-from .models import level, job
+from .models import level, job, user
 from django.contrib import admin, messages
+
+class UserAdmin(admin.ModelAdmin):
+    list_display = ['username', 'email', 'phone_number', 'first_name', 'last_name', 'is_staff']
+    list_per_page = 20
 
 class LevelAdmin(admin.ModelAdmin):
     list_display = ['level_name', 'level_comment']
@@ -8,9 +12,9 @@ class LevelAdmin(admin.ModelAdmin):
     list_per_page = 10
 
 class JobAdmin(admin.ModelAdmin):
-    list_display = ['job_level', 'job_date', 'job_content', 'job_isover', 'job_comment']
-    list_filter = ['job_level', 'job_date', 'job_content', 'job_isover']
-    search_fields = ['job_level', 'job_date']
+    list_display = ['job_level', 'job_user', 'job_content', 'job_date', 'job_isover', 'job_comment']
+    list_filter = ['job_level', 'job_date', 'job_user', 'job_content', 'job_isover']
+    search_fields = ['job_level', 'job_date', 'job_user']
     list_per_page = 30
     actions = ['is_over', 'is_nover']
 
@@ -27,5 +31,6 @@ class JobAdmin(admin.ModelAdmin):
     is_over.short_description = "标记为已完成"
     is_nover.short_description = "标记为未完成"
 
+admin.site.register(user, UserAdmin)
 admin.site.register(level, LevelAdmin)
 admin.site.register(job, JobAdmin)

@@ -22,6 +22,7 @@ from rest_framework.authtoken import views
 
 urlpatterns = [
     path('', include('job.urls')),
+    path('', admin.site.urls),
     path('admin/', admin.site.urls),
     path('jet/', include('jet.urls', 'jet')),
     path('jet/dashboard/', include('jet.dashboard.urls', 'jet-dashboard')),
