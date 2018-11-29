@@ -80,30 +80,30 @@ WSGI_APPLICATION = 'WorkList.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
-
-# DATABASE_FILE = os.getenv("DATABASE_FILE", os.path.join(BASE_DIR, 'db.sqlite3'))
-# DATABASE_NAME = os.environ.get("DATABASE_NAME", "worklist")
-# DATABASE_USER = os.environ.get("DATABASE_USER", "root")
-# DATABASE_HOST = os.environ.get("DATABASE_HOST", "172.16.52.142")
-# DATABASE_PORT = os.environ.get("DATABASE_PORT", 3306)
-# DATABASE_PASSWORD = os.environ.get("DATABASE_PASSWORD", "Admin@123456789")
-#
 # DATABASES = {
 #     'default': {
-#         'ENGINE': 'django.db.backends.mysql',
-#         'NAME': DATABASE_NAME,
-#         'USER': DATABASE_USER,
-#         'PASSWORD': DATABASE_PASSWORD,
-#         'HOST': DATABASE_HOST,
-#         'PORT': DATABASE_PORT,
-#     },
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#     }
 # }
+
+DATABASE_FILE = os.getenv("DATABASE_FILE", os.path.join(BASE_DIR, 'db.sqlite3'))
+DATABASE_NAME = os.environ.get("DATABASE_NAME", "worklist")
+DATABASE_USER = os.environ.get("DATABASE_USER", "root")
+DATABASE_HOST = os.environ.get("DATABASE_HOST", "172.16.52.142")
+DATABASE_PORT = os.environ.get("DATABASE_PORT", 3306)
+DATABASE_PASSWORD = os.environ.get("DATABASE_PASSWORD", "Admin@123456789")
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': DATABASE_NAME,
+        'USER': DATABASE_USER,
+        'PASSWORD': DATABASE_PASSWORD,
+        'HOST': DATABASE_HOST,
+        'PORT': DATABASE_PORT,
+    },
+}
 
 
 # Password validation
