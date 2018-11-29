@@ -24,7 +24,7 @@ SECRET_KEY = ')rztrde_rm&2vgb7g9(x!1@go9d=hrdr#t52t=(_ae!nr#v*n='
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
+AUTH_USER_MODEL = 'job.user'
 ALLOWED_HOSTS = ['*']
 
 

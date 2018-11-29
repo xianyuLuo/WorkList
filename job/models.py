@@ -1,13 +1,13 @@
 from django.db import models
 from datetime import date
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User, AbstractUser
 
+class user(AbstractUser):
+    phone_number = models.CharField('电话', max_length=20, blank=True, default="", help_text='用于接收短信或语言告警')
 
-class user(User):
-    phone_number = models.CharField(max_length = 20, verbose_name = '联系电话', help_text = '用于接收通知')
-
-    class Meta:
-        verbose_name = "User"
+    class Meta(AbstractUser.Meta):
+        swappable = 'AUTH_USER_MODEL'
+        verbose_name = 'User'
         verbose_name_plural = verbose_name
 
 class level(models.Model):
