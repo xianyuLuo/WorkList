@@ -2,6 +2,7 @@ from .models import level, job, user
 from django.contrib import admin, messages
 from django.utils.translation import ugettext_lazy as _
 
+@admin.register(user)
 class UserAdmin(admin.ModelAdmin):
     fieldsets = (
         (None, {'fields': ('username', 'password')}),
@@ -13,12 +14,14 @@ class UserAdmin(admin.ModelAdmin):
     list_display = ['username', 'email', 'phone_number', 'first_name', 'last_name', 'is_staff']
     list_per_page = 20
 
+@admin.register(level)
 class LevelAdmin(admin.ModelAdmin):
     list_display = ['level_name', 'level_comment']
     list_filter = ['level_name']
     search_fields = ['level_name']
     list_per_page = 10
 
+@admin.register(job)
 class JobAdmin(admin.ModelAdmin):
     list_display = ['job_level', 'job_user', 'job_content', 'job_date', 'job_isover', 'job_comment']
     list_filter = ['job_level', 'job_date', 'job_user', 'job_content', 'job_isover']
@@ -39,6 +42,6 @@ class JobAdmin(admin.ModelAdmin):
     is_over.short_description = "标记为已完成"
     is_nover.short_description = "标记为未完成"
 
-admin.site.register(user, UserAdmin)
-admin.site.register(level, LevelAdmin)
-admin.site.register(job, JobAdmin)
+# admin.site.register(user, UserAdmin)
+# admin.site.register(level, LevelAdmin)
+# admin.site.register(job, JobAdmin)
